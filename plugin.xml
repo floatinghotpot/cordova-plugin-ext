@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	id="com.rjfun.cordova.ext"
+	version="1.0.0">
+      
+  	<engines>
+    	<engine name="cordova" version=">=3.0.0" />
+    </engines>
+        
+    <name>Cordova Plugin Extension</name>
+	<description>Cordova Plugin written based on this interface, can also be used for Unity, Cocos2d-X, and other frameworks</description>
+	<keywords>cordova,plugin,unity,cocos2dx,rjfun</keywords>
+	<author>Liming Xie</author>
+	<license>MIT</license>
+    <repo>https://github.com/floatinghotpot/cordova-plugin-ext.git</repo>
+    <issue>https://github.com/floatinghotpot/cordova-plugin-ext/issues</issue>
+
+    <!-- android -->
+    <platform name="android">
+        <source-file src="src/android/PluginAdapterDelegate.java" target-dir="src/com/rjfun/cordova/ext" />
+        <source-file src="src/android/CordovaPluginExt.java" target-dir="src/com/rjfun/cordova/ext" />
+     </platform>
+
+     <!-- ios -->
+     <platform name="ios">    
+         <header-file src="src/ios/PluginAdapterDelegate.h"/>
+         <header-file src="src/ios/CDVPluginExt.h"/>
+         <source-file src="src/ios/CDVPluginExt.m"/>
+	</platform>
+
+</plugin>
