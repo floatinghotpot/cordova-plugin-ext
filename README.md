@@ -72,7 +72,7 @@ This plugin is used as dependency of other plugins, for plugin developers only.
 In your plugin.xml, add it as dependency:
 
 ```xml
-<dependency id="org.apache.cordova.ext" version=">=1.0.0"/>
+<dependency id="com.rjfun.cordova.ext" version=">=1.0.0"/>
 ```
 
 Inherit Cordova Plugin Ext:
@@ -80,7 +80,7 @@ Inherit Cordova Plugin Ext:
 Plugin for Android:
 
 ```java
-import org.apache.cordova.ext.*;
+import com.rjfun.cordova.ext.*;
 
 // your plugin class
 public class YourPluginClass extends CordovaPluginExt {
