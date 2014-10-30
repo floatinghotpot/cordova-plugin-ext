@@ -5,9 +5,9 @@ Extend the Cordova plugin base class with adapter interface.
 
 Plugin written based on this interface, can also be used for Unity, Cocos2d-X, and other frameworks.
 
-# Purpose of Project #
+# Purpose #
 
-Re-use Cordova Plugins.
+Make Cordova Plugins reusable.
 
 To use mobile device native functionalities and integrate 3rd-party SDKs, mobile developers are writting plugins for Cordova, Unity, Cocos2d-X, and other frameworks. 
 
@@ -55,7 +55,7 @@ Plugin for iOS:
 
 # Android #
 
-```javascript
+```java
 public interface PluginAdapterDelegate {
 	// context
 	public Activity getActivity();
