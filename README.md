@@ -19,6 +19,52 @@ See related projects:
 * [Cordova for Unity](https://github.com/floatinghotpot/cordova-for-unity)
 * [Cordova for Cocos2d-X](https://github.com/floatinghotpot/cordova-for-cocos2dx)
 
+# How it works ? #
+
+Android implementation:
+
+```java
+public interface PluginAdapterDelegate {
+	// context
+	public Activity getActivity();
+	public View getView();
+	// send message from plugin to container on events
+	public void fireEvent(String obj, String eventName, String jsonData);
+	// send call result
+	public void sendPluginResult(PluginResult result, CallbackContext context);
+}
+
+public class CordovaPluginExt extends CordovaPlugin implements PluginAdapterDelegate {
+	protected PluginAdapterDelegate adapter = null;
+}
+
+
+```
+
+iOS implementation:
+
+```objective-c
+@protocol PluginAdapterDelegate <NSObject>
+	// context
+- (UIView*) getView;
+- (UIViewController*) getViewController;
+	// send message from plugin to container on events
+- (void) fireEvent:(NSString*)obj event:(NSString*)eventName withData:(NSString*)jsonStr;
+	// send call result
+- (void) sendPluginResult:(CDVPluginResult*)result to:(NSString*)callbackId;
+@end
+
+@interface CDVPluginExt : CDVPlugin <PluginAdapterDelegate>
+@property(nonatomic, retain) id<PluginAdapterDelegate> adapter;
+@end
+
+
+```
+
+Other platform:
+
+Not implemented yet.
+
 # How to Use? #
 
 This plugin is used as dependency of other plugins, for plugin developers only.
@@ -53,49 +99,7 @@ Plugin for iOS:
 @end
 ```
 
-# Android #
 
-```java
-public interface PluginAdapterDelegate {
-	// context
-	public Activity getActivity();
-	public View getView();
-	// send message from plugin to container on events
-	public void fireEvent(String obj, String eventName, String jsonData);
-	// send call result
-	public void sendPluginResult(PluginResult result, CallbackContext context);
-}
-
-public class CordovaPluginExt extends CordovaPlugin implements PluginAdapterDelegate {
-	protected PluginAdapterDelegate adapter = null;
-}
-
-
-```
-
-# iOS #
-
-```objective-c
-@protocol PluginAdapterDelegate <NSObject>
-	// context
-- (UIView*) getView;
-- (UIViewController*) getViewController;
-	// send message from plugin to container on events
-- (void) fireEvent:(NSString*)obj event:(NSString*)eventName withData:(NSString*)jsonStr;
-	// send call result
-- (void) sendPluginResult:(CDVPluginResult*)result to:(NSString*)callbackId;
-@end
-
-@interface CDVPluginExt : CDVPlugin <PluginAdapterDelegate>
-@property(nonatomic, retain) id<PluginAdapterDelegate> adapter;
-@end
-
-
-```
-
-# Windows #
-
-Not implemented yet.
 
 # Credit #
 
