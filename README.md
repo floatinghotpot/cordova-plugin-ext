@@ -19,6 +19,40 @@ See related projects:
 * [Cordova for Unity](https://github.com/floatinghotpot/cordova-for-unity)
 * [Cordova for Cocos2d-X](https://github.com/floatinghotpot/cordova-for-cocos2dx)
 
+# How to Use? #
+
+This plugin is used as dependency of other plugins, for plugin developers only.
+
+In your plugin.xml, add it as dependency:
+
+```xml
+<dependency id="org.apache.cordova.ext" version=">=1.0.0"/>
+```
+
+Inherit Cordova Plugin Ext:
+
+Plugin for Android:
+import org.apache.cordova.ext.*;
+
+```java
+// your plugin class
+public class YourPluginClass extends CordovaPluginExt {
+	// implement the method, call the API defined in PluginAdapterDelegate
+	public boolean execute(String action, JSONArray inputs, CallbackContext callbackContext) throws JSONException;
+}
+```
+
+Plugin for iOS:
+```objective-c
+#import "CDVCordovaExt.h"
+
+// your plugin class
+@interface YourPluginClass : CDVPluginExt
+	// implement the method, call the API defined in PluginAdapterDelegate
+- (void) your_method:(CDVInvokedUrlCommand *)command;
+@end
+```
+
 # Android #
 
 ```javascript
@@ -36,11 +70,6 @@ public class CordovaPluginExt extends CordovaPlugin implements PluginAdapterDele
 	protected PluginAdapterDelegate adapter = null;
 }
 
-// your plugin class
-public class YourPluginClass extends CordovaPluginExt {
-	// implement the method, call the API defined in PluginAdapterDelegate
-	public boolean execute(String action, JSONArray inputs, CallbackContext callbackContext) throws JSONException;
-}
 
 ```
 
@@ -61,11 +90,6 @@ public class YourPluginClass extends CordovaPluginExt {
 @property(nonatomic, retain) id<PluginAdapterDelegate> adapter;
 @end
 
-// your plugin class
-@interface YourPluginClass : CDVPluginExt
-	// implement the method, call the API defined in PluginAdapterDelegate
-- (void) your_method:(CDVInvokedUrlCommand *)command;
-@end
 
 ```
 
