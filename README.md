@@ -78,9 +78,10 @@ In your plugin.xml, add it as dependency:
 Inherit Cordova Plugin Ext:
 
 Plugin for Android:
-import org.apache.cordova.ext.*;
 
 ```java
+import org.apache.cordova.ext.*;
+
 // your plugin class
 public class YourPluginClass extends CordovaPluginExt {
 	// implement the method, call the API defined in PluginAdapterDelegate
