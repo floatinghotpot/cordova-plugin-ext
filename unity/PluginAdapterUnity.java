@@ -19,7 +19,6 @@ public class PluginAdapterUnity implements PluginAdapterDelegate {
 	@Override
 	public Activity getActivity() {
 		return UnityPlayer.currentActivity;
-		return null;
 	}
 
 	@Override
