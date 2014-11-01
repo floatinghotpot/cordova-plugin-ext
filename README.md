@@ -9,11 +9,11 @@ Plugin written based on this interface, can also be used for Unity, Cocos2d-X, a
 
 Make Cordova Plugins reusable.
 
-To use mobile device native functionalities and integrate 3rd-party SDKs, mobile developers are writting plugins for Cordova, Unity, Cocos2d-X, and other frameworks. 
+To use mobile device native functionalities and integrate 3rd-party SDKs, mobile developers are writting hundreds plugins for Cordova, Unity, Cocos2d-X, and other frameworks. 
 
 Can they be reused? Yes, it's possible. 
 
-Cordova plugin manager is bridging function call between javascript and native languages, it can be ported to bridge with C, C++, C#, then it can be reused for Unity, Cocos2d-X and other frameworks.
+Cordova plugin manager is bridging function call between javascript and native languages, actually, it can be ported to bridge with C, C++, C#, then it can be reused for Unity, Cocos2d-X and other frameworks.
 
 See:
 * Adapter for Cordova, (implemented as default, [Android](https://github.com/floatinghotpot/cordova-plugin-ext/blob/master/src/android/CordovaPluginExt.java) / [iOS](https://github.com/floatinghotpot/cordova-plugin-ext/blob/master/src/ios/CDVPluginExt.m) )
