@@ -16,7 +16,7 @@ Can they be reused? Yes, it's possible.
 Cordova plugin manager is bridging function call between javascript and native languages, it can be ported to bridge with C, C++, C#, then it can be reused for Unity, Cocos2d-X and other frameworks.
 
 See:
-* Adapter for Cordova, default, [Android](https://github.com/floatinghotpot/cordova-plugin-ext/blob/master/src/android/CordovaPluginExt.java), [iOS](https://github.com/floatinghotpot/cordova-plugin-ext/blob/master/src/ios/CDVPluginExt.m)
+* Adapter for Cordova, (implemented as default, [Android](https://github.com/floatinghotpot/cordova-plugin-ext/blob/master/src/android/CordovaPluginExt.java) / [iOS](https://github.com/floatinghotpot/cordova-plugin-ext/blob/master/src/ios/CDVPluginExt.m) )
 * [Adapter for Unity](https://github.com/floatinghotpot/cordova-plugin-ext/tree/master/unity)
 * [Adapter for Cocos2d-X](https://github.com/floatinghotpot/cordova-plugin-ext/tree/master/cocos2dx)
 
