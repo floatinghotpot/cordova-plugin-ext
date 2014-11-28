@@ -1,7 +1,10 @@
 package com.rjfun.cordova.ext;
 
+import java.lang.reflect.Method;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.PluginResult;
 
 import android.app.Activity;
@@ -22,7 +25,25 @@ public class CordovaPluginExt extends CordovaPlugin implements PluginAdapterDele
 	@Override
 	public View getView() {
 		if(adapter != null) return adapter.getView();
-		else return webView;
+		else {
+			// Cordova 3.x, class CordovaWebView extends WebView, -> AbsoluteLayout -> ViewGroup -> View -> Object
+			if(View.class.isAssignableFrom(CordovaWebView.class)) {
+				return (View) webView;
+			}
+			
+			// Cordova 4.0.0-dev, interface CordovaWebView { View getView(); }
+			try {
+				Method getViewMethod = CordovaWebView.class.getMethod("getView", (Class<?>[]) null);
+				if(getViewMethod != null) {
+					Object[] args = {};
+					return (View) getViewMethod.invoke(webView, args);
+				}
+			} catch (Exception e) {
+			}
+			
+			// or else we return the root view, but this should not happen
+			return getActivity().getWindow().getDecorView().findViewById(android.R.id.content);
+		}
 	}
 
 	@Override
